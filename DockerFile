@@ -3,11 +3,13 @@ FROM microsoft/dotnet-framework
 ADD jdk1.8.0_111 c:\\Java\\jdk1.8.0_111
 ADD apache-tomcat-8.5.6 c:\\Tomcat\\apache-tomcat-8.5.6
 ADD sqljdbc_auth.dll c:\\windows\\system32
-ADD ROOT.war c:\\Tomcat\\apache-tomcat-8.5.6\\webapps
+ADD ROOT.war c:\\windows\\temp
+ADD init.ps1 /windows/temp/init.ps1
 
 RUN powershell setx /M JAVA_HOME "C:\Java\jdk1.8.0_111"
 RUN powershell setx /M CATALINA_HOME "C:\Tomcat\apache-tomcat-8.5.6"
 
+
 EXPOSE 80
 
-CMD "c:\\Tomcat\\apache-tomcat-8.5.6\bin\catalina.bat run"
+CMD powershell.exe -executionpolicy bypass c:\windows\temp\init.ps1
