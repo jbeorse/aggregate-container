@@ -120,7 +120,7 @@
     <!-- You should set jvmRoute to support load-balancing via AJP ie :
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
-    <Engine name="Catalina" defaultHost="odk-sync.westus.cloudapp.azure.com">
+    <Engine name="Catalina" defaultHost="172.31.32.30">
 
       <!--For clustering, please take a look at documentation at:
           /docs/cluster-howto.html  (simple how to)
@@ -140,7 +140,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="odk-sync.westus.cloudapp.azure.com"  appBase="webapps"
+      <Host name="172.31.32.30"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 
         <!-- SingleSignOn valve, share authentication between web applications

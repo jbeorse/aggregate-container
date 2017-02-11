@@ -45,8 +45,8 @@ echo "Read sql server hostname in certificate: $($sqlServerHostnameInCertificate
 $user = $env:USERNAME
 echo "Read user: $($user)"
 
-$authVal = "jdbc:sqlserver://$($sqlServerAddress);database=$($database);user=$($dbUser);password=$($dbPassword);encrypt=true;trustServerCertificate=$($sqlServerTrustCertificate);hostNameInCertificate=$($sqlServerHostnameInCertificate);loginTimeout=30;"
-
+$authVal = "jdbc:sqlserver://$($sqlServerAddress);database=$($database);user=$($dbUser);password=$($dbPassword);encrypt=true;trustServerCertificate=$($sqlServerTrustCertificate);hostNameInCertificate=$($sqlServerHostnameInCertificate);loginTimeout=30"
+echo "Auth String: $($authVal)"
 
 # Define functions for unzipping and rebuilding the war and jar files
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -102,5 +102,4 @@ Start-Process -Filepath "C:\Tomcat\apache-tomcat-8.5.6\bin\catalina.bat" run
 while($true)
 {
     $i++
-    Write-Host “We have counted up to $i”
 }
